@@ -1,17 +1,17 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>Events</h1>
 <ul>
     <% @events.each do |event| %>
         <li>
             <strong><%= event.name %></strong>
             in <%= event.location %>
-            <%= number_to_currency(event.price, precision: 0) %>
+
+            <%= price(event) %>
         </li>
         <p>
-            <%= event.description %>
+            <%= truncate(event.description, length: 35, separator: ' ') %>
         </p>
         <p>
-            <%= event.starts_at %>
+            <%= day_and_time(event) %>
         </p>
     <% end %>
 </ul>
